@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Ai GMAIL SENDER AGENT",
+  "version": "1.0.3",
+  "description": "Sequential email sending agent using Gmail native interface with local templates and configurable delays.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "js": [
+        "gmail-content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Ai Gmail Sender Agent",
+    "default_icon": {
+      "48": "assets/icon48.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  }
+}
